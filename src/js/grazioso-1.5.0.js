@@ -390,27 +390,29 @@ Date.prototype.afterDate = function(diff){
              colorData.forEach(function(v, k) {
                colorData[k] = canvas.getContext('2d').getImageData(offsetX, offsetY, canvas.width, canvas.height).data[k];
              });      
+             console.log(colorData);
              imgarr.push(colorData.join(','));
              croarr.push(this.Cromatic(colorData)); 
              lightarr.push(this.Distance(colorData));   
 
           }
         } 
-        console.log(croarr);
         croarr = croarr.filter(function(n){ return n !== 0 }); 
-        cromax = croarr.reduce(function(a, b) { return Math.max(a, b) });
-        cromin = croarr.reduce(function(a, b) { return Math.min(a, b) });
+         if(croarr.length !== 0){     
+         cromax = croarr.reduce(function(a, b) { return Math.max(a, b) });
+         cromin = croarr.reduce(function(a, b) { return Math.min(a, b) });
          if(this.croma <= 0){ diffcro = 0;}
          else if(this.croma === 10){ diffcro = cromin + Math.floor((cromax-cromin)/10) * (this.croma); }
          else{ diffcro = cromin + Math.floor((cromax-cromin)/10) * (this.croma-1); }
-
+         }
         lightarr = lightarr.filter(function(n){ return n !== 0 }); 
-        lightmax = lightarr.reduce(function(a, b) { return Math.max(a, b) });
-        lightmin = lightarr.reduce(function(a, b) { return Math.min(a, b) });
+         if(lightarr.length !== 0){   
+         lightmax = lightarr.reduce(function(a, b) { return Math.max(a, b) });
+         lightmin = lightarr.reduce(function(a, b) { return Math.min(a, b) });
          if(this.light <= 0){ difflight = 0;}
          else if(this.light === 10){ difflight = lightmin + Math.floor((lightmax-lightmin)/10) * (this.light); }
          else{ difflight = lightmin + Math.floor((lightmax-lightmin)/10) * (this.light-1); }
-
+         }
         imgarr.forEach(function(str){
           var obj = str.split(',').map(Number);
           if( (this.Distance(obj) >= difflight) && (this.Cromatic(obj) >= diffcro) )
