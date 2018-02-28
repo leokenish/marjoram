@@ -396,6 +396,7 @@ Date.prototype.afterDate = function(diff){
 
           }
         } 
+        console.log(croarr);
         croarr = croarr.filter(function(n){ return n !== 0 }); 
         cromax = croarr.reduce(function(a, b) { return Math.max(a, b) });
         cromin = croarr.reduce(function(a, b) { return Math.min(a, b) });
