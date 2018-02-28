@@ -379,8 +379,8 @@ Date.prototype.afterDate = function(diff){
     var lightarr = [];
     var cnt = 0;
     var canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
+        canvas.width = img.width || img.naturalWidth;;
+        canvas.height = img.height || img.naturalHeight;
         canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
     var offsetX, offsetY;      
         for(var i=1; i<=this.dots; i++){
