@@ -41,10 +41,15 @@ div.title2{
 </div>
 
 <div class="line">설치방법</div>
-<div class="usage" style="margin-bottom: 80px;"> 
+<div class="usage" style="margin-bottom: 20px;"> 
 <div>적용할 페이지 상단 head 태그 안에 grazioso.css 및 erpweb.js 파일을 인클루드 시켜 주세요</div>
 &lt;link rel="stylesheet" type="text/css" href="<strong>css/erpweb.css</strong>"&gt;<br>
-&lt;script type="text/javascript" src="<strong>js/erpweb.js</strong>""&gt;<br>
+&lt;script type="text/javascript" src="<strong>js/erpweb.js</strong>"&gt;<br>
+</div>
+<div class="usage" style="margin-bottom: 60px;"> 
+<div><strong>[CDN 주소]</strong></div>
+https://grazioso.herokuapp.com/css/grazioso-1.0.0.css<br>
+https://grazioso.herokuapp.com/js/grazioso-1.5.0.js<br>
 </div>
 
 <div class="line">Ajax 통신 클래스</div>
@@ -57,8 +62,8 @@ div.title2{
   <li>동일 도메인(kbs.co.kr)에서만 ERP 통신 가능합니다</li>
   <li>파라미터 데이터 타입으로는 json 방식만 사용합니다</li>
   <li>대소문자는 구분 하여야 합니다</li>
-  <li>데이터에 " : , 특수문자는 사용하지 않습니다</li>
-  <li>로더 사용은 <a href="../css" target="_blank">css 페이지</a>를 참조해 주십시오</li>
+  <li>전송 데이터에 특수문자는 사용하지 않습니다</li>
+  <li>로더 디자인은 <a href="../css" target="_blank">css 페이지</a>를 참조해 주십시오</li>
  </ul>
  <ul><strong>2. 속성</strong>
   <li>url: 통신할 url 주소</li>
@@ -380,7 +385,7 @@ $(document).ready(function(){
   $("#ajax2").append("<button id='LoaderClick' class='medium blue center'>클릭</button>");
   $("#LoaderClick").on("click", function(){
     Loader.Pop();
-    Ajax.url = "http://127.0.0.1:5555/ajax";
+    Ajax.url = "http://127.0.0.1:8081/ajax";
     Ajax.async = true;
     Ajax.param = {};
     Ajax.Call().onloadend = function(){
