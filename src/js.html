@@ -385,7 +385,8 @@ $(document).ready(function(){
   $("#ajax2").append("<button id='LoaderClick' class='medium blue center'>클릭</button>");
   $("#LoaderClick").on("click", function(){
     Loader.Pop();
-    Ajax.url = "http://127.0.0.1:8081/ajax";
+    if(!!location.host.match("grazioso.herokuapp.com")) {Ajax.url = "https://grazioso.herokuapp.com/ajax";}
+    else {Ajax.url = "http://127.0.0.1:8081/ajax";}
     Ajax.async = true;
     Ajax.param = {};
     Ajax.Call().onloadend = function(){
