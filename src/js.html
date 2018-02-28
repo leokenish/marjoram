@@ -464,25 +464,68 @@ input 태그 등에서 입력된 값을 검증 할 수 있습니다. input 태�
   $("#date1").append("<div><strong>5일 후 날짜: </strong>"+ myDate.afterDate(5) +"</div>");
 
   //색상 클래스 결과
-  var colas = $("img[alt='cocacola']");
-  [].forEach.call( colas, function( cola ) {
-    cola.addEventListener( 'load', function(){
-     Color.image = this;
-     Color.croma = 0;
-     var rgba = Color.getImgRGBA();
-     this.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
-    });
-  });
+  var $cola1 = document.getElementById("cocacola1");
+  Color.image = $cola1;
+  Color.croma = 0;
+  var rgba = Color.getImgRGBA();
+  $cola1.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
 
-  var stars = $("img[alt='starbucks']");
-  [].forEach.call( stars, function( star ) {
-    star.addEventListener( 'load', function(){
-     Color.image = this;
-     Color.light = 2;
-     var rgba = Color.getImgRGBA();
-     this.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
-    });
-  });
+  var $cola2 = document.getElementById("cocacola2");
+  Color.image = $cola2;
+  Color.croma = 1;
+  var rgba = Color.getImgRGBA();
+  $cola2.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola3 = document.getElementById("cocacola3");
+  Color.image = $cola3;
+  Color.croma = 2;
+  var rgba = Color.getImgRGBA();
+  $cola3.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola4 = document.getElementById("cocacola4");
+  Color.image = $cola4;
+  Color.croma = 7;
+  var rgba = Color.getImgRGBA();
+  $cola4.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola5 = document.getElementById("cocacola5");
+  Color.image = $cola5;
+  Color.croma = 10;
+  var rgba = Color.getImgRGBA();
+  $cola5.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  Color.croma = 1;
+
+  var $star1 = document.getElementById("starbucks1");
+  Color.image = $star1;
+  Color.light = 0;
+  var rgba = Color.getImgRGBA();
+  $star1.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star2 = document.getElementById("starbucks2");
+  Color.image = $star2;
+  Color.light = 1;
+  var rgba = Color.getImgRGBA();
+  $star2.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star3 = document.getElementById("starbucks3");
+  Color.image = $star3;
+  Color.light = 5;
+  var rgba = Color.getImgRGBA();
+  $star3.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star4 = document.getElementById("starbucks4");
+  Color.image = $star4;
+  Color.light = 7;
+  var rgba = Color.getImgRGBA();
+  $star4.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star5 = document.getElementById("starbucks5");
+  Color.image = $star5;
+  Color.light = 9;
+  var rgba = Color.getImgRGBA();
+  $star5.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
   
   //쿠키 클래스 결과
   Cookie.setCookie("num","12345678");
