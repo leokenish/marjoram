@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/grazioso-1.5.0.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/grazioso-1.0.0.css">
+<link href="https://fonts.googleapis.com/css?family=Monoton|Nanum+Pen+Script|Press+Start+2P" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="../images/grazioso.ico"/>
+<title>ERP WEB LIBRARY</title>
+<style type="text/css">
+body{
+  font-family: dotum;
+}
+div img{
+    width: 60%;
+    max-width: 120px;
+    display: inline-block;
+}
+span{
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 100;
+}
+div.title2{
+   font-family: 'Monoton', cursive;
+}
+.loader{
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+}
+</style>
+<body>
+<div class="title">
+<span style="color:#FCE537">ERP</span>
+<span style="color:#0DBA0D">WEB</span>
+<span style="color:#4079FD">JS</span>
+<span style="color:#FC6658">DOCUMENT</span> 
+<div class="title2">JS</div>
+</div>
+
+<div class="line">설치방법</div>
+<div class="usage" style="margin-bottom: 80px;"> 
+<div>적용할 페이지 상단 head 태그 안에 grazioso.css 및 erpweb.js 파일을 인클루드 시켜 주세요</div>
+&lt;link rel="stylesheet" type="text/css" href="<strong>css/erpweb.css</strong>"&gt;<br>
+&lt;script type="text/javascript" src="<strong>js/erpweb.js</strong>""&gt;<br>
+</div>
+
+<div class="line">Ajax 통신 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+ Ajax 클래스로 REST방식의 자바스크립트 비동기 통신을 할 수 있습니다. 인풋, 아웃풋 데이터 결과는 디버깅 툴 콘솔창에서 확인 가능합니다.<br>
+ ERP 함수와 통신 할 때 꼭 이 클래스를 사용하여야 파싱에 문제가 없으며 주의사항을 참고 해주세요.<br>
+ 서버와의 응답이 길 경우 비동기 통신(async: true)으로 로더를 사용해 주셔야 합니다.<br>
+ <ul><strong>1. 주의사항</strong>
+  <li>동일 도메인(kbs.co.kr)에서만 ERP 통신 가능합니다</li>
+  <li>파라미터 데이터 타입으로는 json 방식만 사용합니다</li>
+  <li>대소문자는 구분 하여야 합니다</li>
+  <li>데이터에 " : , 특수문자는 사용하지 않습니다</li>
+  <li>로더 사용은 <a href="../css" target="_blank">css 페이지</a>를 참조해 주십시오</li>
+ </ul>
+ <ul><strong>2. 속성</strong>
+  <li>url: 통신할 url 주소</li>
+  <li>param: 전송할 데이터 파리미터(json 타입)</li>
+  <li>async: 비동기 통신여부, 기본값은 true</li>
+  <li>result: 통신 후 반환 된 결과값이 자동으로 파싱되어 저장됩니다.</li>
+ </ul>
+ <ul><strong>3. 메소드</strong>
+  <li>.Call(): 지정된 url 주소로 통신을 호출합니다.</li>
+  <li>.Parse(): 호출된 문자열 결과를 json 타입으로 파싱하여 반환합니다.</li>
+ </ul>  
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 통신할 erp함수 url 지정</strong></div> 
+&nbsp;&nbsp;Ajax.url = "https://erp.kbs.co.kr/kbs/zweb_common/ajax_common.htm?function_name=ZWEB_PS_MYINFO";<br><br>
+<div><strong>2. json 타입의 전송 데이터, 특수문자 및 괄호에 주의하며 여러 라인일 경우 대괄호를 이용한 array 타입으로 묶어줌</strong></div>
+&nbsp;&nbsp;Ajax.param = {"FLAG":"A", "ID":"30751","DATE":"20180209", "TBL":[{"PERNR":"30750","VDSK1":"50026013","POSID":"T0145450001"}, {"PERNR":"30751","VDSK1":"50026013","POSID":"T0111590001"}, {"PERNR":"30752","VDSK1":"50026013","POSID":"T0140020002"}]};<br><br>
+<div><strong>3. 동기 통신일 경우(짧은 응답일때 사용)</strong></div>
+&nbsp;&nbsp;Ajax.async = false;<br>
+&nbsp;&nbsp;Ajax.Call(); //호출<br>
+&nbsp;&nbsp;$("#ajax").text("이름:" + Ajax.result.ENAME +", 등급:" + Ajax.result.ORGEH); //결과 표시<br><br>
+<div><strong>4. 비동기 통신일 경우(긴 응답일떄 사용)</strong></div>
+&nbsp;&nbsp;Ajax.async = true;<br>
+&nbsp;&nbsp;Ajax.Call().onloadend = function(){; //호출 종료 이벤트 설정<br>
+&nbsp;&nbsp;&nbsp;$("#ajax").text("이름:" + Ajax.result.ENAME +", 등급:" + Ajax.result.ORGEH); //결과 표시<br>
+&nbsp;&nbsp;});<br><br>
+<div><strong>5. 비동기 통신 이벤트 핸들러 설정으로 로더 만들기 예제</strong></div>
+&nbsp;&nbsp;$("#LoaderClick").on("click", function(){<br>
+&nbsp;&nbsp;&nbsp;Loader.Pop();<br>
+&nbsp;&nbsp;&nbsp;Ajax.async = false;<br>
+&nbsp;&nbsp;&nbsp;Ajax.Call().onloadend = function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$("#ajax1").text("이름:" + Ajax.result.ENAME +", 부서코드:" + Ajax.result.ORGEH);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Loader.Close();<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;});<br><br>
+</div>
+<div class="resultText"></div>
+<div id="ajax2" class="result center"></div>
+<div id="ajax1" class="result"></div>
+
+<div class="line">데이터 정렬 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+여러 라인의 object가 포함된 array 타입의 데이터를 처리하는 클래스 입니다. array 속성값에 처리할 배열을 입력하고 val속성값에 정렬 기준이 될 필드명을 지정해 줍니다.
+메소드의 리턴값은 모두 오브젝트 타입 입니다.
+ <ul><strong>1. 속성</strong>
+  <li>array: 정렬할 배열 오브젝트</li>
+  <li>val: 정렬 기준이 될 필드 명</li>
+ </ul>
+ <ul><strong>2. 메소드</strong>
+  <li>.Ascend(): 지정된 필드를 기준으로 오름차순 합니다</li>
+  <li>.Descend(): 지정된 필드를 기준으로 내림차순 합니다</li>
+  <li>.Reverse(): 지정된 필드를 기준으로 역으로 나열합니다</li>
+  <li>.Max(): 지정된 필드 중 최대값이 포함된 object를 반환합니다.</li>
+  <li>.Min(): 지정된 필드 중 최소값이 포함된 object를 반환합니다.</li>
+  <li>.Sum(): 지정된 필드의 데이터 값을 숫자화하여 합을 반환합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. array 타입의 데이터를 입력</strong></div> 
+&nbsp;&nbsp;Sort.array = [
+  { name: 'Edward', age: 21 },
+  { name: 'Sharpe', age: 37 },
+  { name: 'And', age: "45" },
+  { name: 'The', age: 12 },
+  { name: 'Zeros', age: "37" }
+];<br><br>
+<div><strong>2. 정렬의 기준이 될 필드명 지정</strong></div> 
+&nbsp;&nbsp;Sort.val = "age";<br><br>
+
+<div><strong>3. 메소드 실행</strong></div> 
+&nbsp;&nbsp;Sort.Ascend(); //오름차순<br>
+&nbsp;&nbsp;Sort.Reverse(); //역순<br>
+&nbsp;&nbsp;Sort.Sum(); //나이 합<br>
+</div>
+<div class="resultText"></div>
+<div id="sort1" class="result"> 
+</div>
+
+
+<div class="line">모달창 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+새로운 창을 띄우지 않고 페이지 내에서 모달창을 생성 할 수 있습니다. 띄울 모달창이 많을 경우 모든 모달창을 미리 생성 해놓는 것보다 이벤트 발생 시
+모달창을 바로 생성(Create)하여 띄워주는(Pop)것이 좋습니다. 또한 용도에 맞게 모달창 밖을 클릭하거나 footer에  종료버튼을 클릭하면 닫히게(Close) 하시면 됩니다.
+모달창이 뜨면 기본적으로 배경은 어둡게 바뀝니다.
+ <ul><strong>1. 속성</strong>
+  <li>title: 모달창의 제목 입니다. html 태그로 디자인 가능 합니다. </li>
+  <li>content: 정렬 기준이 될 필드 명</li>
+  <li>footer: 정렬 기준이 될 필드 명</li>
+ </ul>
+ <ul><strong>2. 메소드</strong>
+ <ul>
+  <li>.Create(): div태그의 모달창을 생성 합니다.</li>
+  <li>.Pop(): 생성된 모달창을 띄웁니다.</li>
+  <li>.Close(): 생성된 모달창을 종료합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 모달창의 제목, 내용을 입력합니다.</strong></div> 
+&nbsp;&nbsp;Modal.title = "모달창 제목";<br>
+&nbsp;&nbsp;Modal.content = "&lt;p&gt;모달창 내용&lt;/p&gt;";<br><br>
+<div><strong>2. 모달창 하단의 기능 버튼을 만들어 줍니다.</strong></div> 
+&nbsp;&nbsp;Modal.footer = "&lt;button class='green'&gt;승인&lt;/button&gt;&lt;button class='red'&gt;닫기&lt;/button&gt;"<br><br>
+<div><strong>3. 모달창 생성</strong></div> 
+&nbsp;&nbsp;Modal.Create();<br><br>
+<div><strong>4. 모달창 띄우기</strong></div> 
+&nbsp;&nbsp;Modal.Pop();<br><br>
+<div><strong>5. 모달창 종료</strong></div> 
+&nbsp;&nbsp;Modal.Close();<br><br>
+</div>
+<div class="resultText"></div>
+<div id="modal1" class="result center"> 
+</div>
+
+
+<div class="line">검색 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+배열 안 특정 키워드로 검색된 모든 값들을 배열 타입으로 반환 합니다. 결재자 검색, 부서 검색, 프로그램 검색등 에 모두 사용 가능합니다. 
+검색 키워드는 최소 2글자 이상 입력을 받는 것이 좋습니다.
+ <ul><strong>1. 속성</strong>
+  <li>nval: 검색할 키워드 입니다. </li>
+  <li>array: 검색할 데이터 배열입니다.</li>
+ </ul>
+ <ul><strong>2. 메소드</strong>
+ <ul>
+  <li>.Match(): 지정된 키워드가 포함된 데이터를 추출합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 검색할 배열을 입력 해 줍니다.</strong></div> 
+&nbsp;&nbsp;SearchList.arr = [{'item1':'ABC','item2':'123','name':'홍길동'},'item3:546','5002121'];<br><br>
+<div><strong>2. 검색할 키워드를 지정해 줍니다.</strong></div> 
+&nbsp;&nbsp;SearchList.nval = "item";<br><br>
+<div><strong>3. 키워드로 매칭되는 모든 값을 배열타입으로 반환합니다.</strong></div> 
+&nbsp;&nbsp;SearchList.Match();<br><br>
+</div>
+<div class="resultText"></div>
+<div id='searchlist1' class="result"> 
+</div>
+
+
+<div class="line">문자열 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+기본 String 클래스를 상속 확장 하여 아래 메소드들을 추가 하였습니다. 금액을 표시 하거나 json 타입으로 데이터를 변환 시 특수문자 제거에 용이 합니다.
+ <ul><strong>1. 메소드</strong>
+ <ul>
+  <li>.Currency(): 숫자 3자리마다 쉼표를 넣어 화폐 단위로 변경 합니다.</li>
+  <li>.unCurrency(): 숫자 3자리마다 있는 쉼표를 제거하여 일반 문자열로 표현 합니다.</li>
+  <li>.unSpecial(): 문자열 내부에 있는 특수 문자를 모두 제거합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 일반 문자열을 화폐 단위로 변경 합니다.</strong></div> 
+&nbsp;&nbsp;var str = "1234567689";<br>
+&nbsp;&nbsp;str.Currency();<br><br>
+<div><strong>2. 다시 일반 문자열로 변경합니다.</strong></div> 
+&nbsp;&nbsp;str.unCurrency();<br><br>
+<div><strong>3. 문자열 내 특수 문자를 모두 제거 합니다.</strong></div> 
+&nbsp;&nbsp;var special = "abc!@#$%|+_123";<br>
+&nbsp;&nbsp;special.unSpecial();<br><br>
+</div>
+<div class="resultText"></div>
+<div id="string1" class="result"> 
+</div>
+
+
+<div class="line">날짜 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+기본 Date 클래스를 상속 확장 하여 아래 메소드들을 추가 하였습니다. 날짜를 입력 받는 곳에 기본값으로 설정하여 사용하면 용이 합니다.
+ <ul><strong>1. 메소드</strong>
+  <li>.Today(): 오늘 날짜를 yyyymmdd 형식 문자열로 반환 합니다.</li>
+  <li>.diffDate(date1, date2): date1과 date2의 일 간격을 숫자(Int)로 반환 합니다.</li>
+  <li>.beforedate(diff): 오늘 날짜 기준 diff일 만큼 전 날짜를 yyyymmdd 형식 문자열로 반환합니다.</li>
+  <li>.afterdate(diff): 오늘 날짜 기준 diff일 만큼 후 날짜를 yyyymmdd 형식 문자열로 반환합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 우선 Date클래스를 상속 받습니다.</strong></div> 
+&nbsp;&nbsp;var myDate = Object.create(Date.prototype); 혹은 var myDate = new Date();<br><br>
+<div><strong>2. 오늘 날짜를 출력합니다.</strong></div> 
+&nbsp;&nbsp;myDate.Today();<br><br>
+<div><strong>3. 두 일자의 차이를 반환 합니다.</strong></div> 
+&nbsp;&nbsp;myDate.diffDate("20180201","20180321");<br><br>
+<div><strong>4. 오늘 일자 기준 5일 전 날짜를 반환 합니다.</strong></div> 
+&nbsp;&nbsp;myDate.beforeDate(5);<br><br>
+<div><strong>5. 오늘 일자 기준 3일 후 날짜를 반환 합니다.</strong></div> 
+&nbsp;&nbsp;myDate.afterDate(3);<br><br>
+</div>
+<div class="resultText"></div>
+<div id="date1" class="result"> 
+</div>
+
+
+<div class="line">색상 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+색상 관련 메소드를 사용 할 수 있습니다.
+ <ul><strong>1. 속성</strong>
+  <li>image: 분석하고 싶은 이미지의 엘리먼트 요소 입니다.</li>
+  <li>light: 이미지 색상정보의 명도를 지정합니다. 범위는 0~10 이며 기본값은 1입니다.</li>
+  <li>chroma: 이미지 색상정보의 채도를 지정합니다. 범위는 0~10 이며 기본값은 1입니다.</li>
+ </ul>
+ <ul><strong>2. 메소드</strong>
+  <li>.Distance(): RGB 좌표계의 색상 거리(밝기)를 나타내며 높을 값일 수록 명도가 높습니다.</li>
+  <li>.Chroma(): 색의 채도르 나타내며 높을 값일 수록 무채색이 빠지고 원색에 가까워 집니다.</li>
+  <li>.getImgRGBA(): img 태그의 파일을 분석하여 대표 색상정보(RGBA)를 추출합니다. img 태그 주변 배경을 꾸며줄때 유용합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 이미지 엘리먼트 요소를 image 속성에 지정합니다.</strong></div> 
+&nbsp;&nbsp;Color.image = document.getElementById("image1");<br><br>
+<div><strong>2. 1~10 사이에서 명도 및 채도를 지정합니다.</strong></div> 
+&nbsp;&nbsp;Color.light = 1<br>
+&nbsp;&nbsp;Color.croma = 6<br><br>
+<div><strong>3. 대표 색상정보(RGBA)를 추출합니다.</strong></div> 
+&nbsp;&nbsp;var rgba = Color.getImgRGBA();<br><br>
+<div><strong>4. 추출된 정보로 원하는 스타일에 적용합니다.</strong></div> 
+&nbsp;&nbsp;  $("#image1").setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");<br><br>
+</div>
+<div class="resultText"></div>
+<div id="color1" class="result"> 
+  <div class='center'>
+    <div style="margin-bottom: 10px; color: #c66439; font-weight: bold;">진해지는 채도</div>
+    <img src='../images/cocacola.jpg' id='cocacola1' class='circle' alt='cocacola'/>
+    <img src='../images/cocacola.jpg' id='cocacola2' class='circle' alt='cocacola'/>
+    <img src='../images/cocacola.jpg' id='cocacola3' class='circle' alt='cocacola'/>
+    <img src='../images/cocacola.jpg' id='cocacola4' class='circle' alt='cocacola'/>
+    <img src='../images/cocacola.jpg' id='cocacola5' class='circle' alt='cocacola'/>   
+  </div>
+</div>
+
+<div id="color2" class="result"> 
+  <div class='center'>
+    <div style="margin-bottom: 10px; color: #79AC9B; font-weight: bold;">밝아지는 명도</div>
+    <img src='../images/starbucks.jpg' id='starbucks1' class='circle' alt='starbucks'/>
+    <img src='../images/starbucks.jpg' id='starbucks2' class='circle' alt='starbucks'/>
+    <img src='../images/starbucks.jpg' id='starbucks3' class='circle' alt='starbucks'/>
+    <img src='../images/starbucks.jpg' id='starbucks4' class='circle' alt='starbucks'/>
+    <img src='../images/starbucks.jpg' id='starbucks5' class='circle' alt='starbucks'/>   
+  </div>
+</div>
+
+
+<div class="line">쿠키 클래스</div>
+<div class="explainText"></div>
+<div class="explain">
+브라우저에 쿠키를 등록, 조회, 삭제를 할 수 있습니다.
+ <ul><strong>1. 메소드</strong>
+  <li>.setCookie(name, val): 브라우저에 신규 쿠키를 등록합니다.</li>
+  <li>.getCookie(name): 브라우저에 등록된 쿠키를 조회 합니다.</li>
+  <li>.delCookie(name): 브라우저에 등록된 쿠키를 삭제 합니다.</li>
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 메소드 파라미터에 각각 등록할 쿠키 이름과 값을 넣고 실행합니다.</strong></div> 
+&nbsp;&nbsp;Cookie.setCookie("num","12345678");<br><br>
+<div><strong>2. 브라우저에 등록된 쿠키를 조회 합니다.</strong></div> 
+&nbsp;&nbsp;Cookie.getCookie("num");<br><br>
+<div><strong>3. 브라우저에 등록된 쿠키를 삭제 합니다.</strong></div> 
+&nbsp;&nbsp;Cookie.delCookie("num");<br><br>
+</div>
+<div class="resultText"></div>
+<div class="result">
+  <strong>현재 브라우저에 등록된 쿠키(document.cookie)</strong>
+  <ul id="cookie1" ></ul>
+</div>
+
+
+<div class="line">입력 값 검증</div>
+<div class="explainText"></div>
+<div class="explain">
+input 태그 등에서 입력된 값을 검증 할 수 있습니다. input 태그에 data 속성 값 + 이벤트 핸들러를 조합하여 
+경고창 등을 표시 할 때 요긴합니다.<br> 
+해당 조건을 만족하면 true를 아니면 false를 반환 합니다.
+ <ul><strong>1. 메소드</strong>
+  <li>.Text(): 해당 입력값이 특수문자를 제외한 문자열로만 되어 있는지 확인 합니다.</li>
+  <li>.Number(): 입력값이 특수문자, 영문자를 제외한 숫자로만 되어 있는지 확인 합니다.</li>
+
+ </ul>
+</div>  
+<div class="usageText"></div>
+<div class="usage">
+<div><strong>1. 입력 태그에 속성을 부여 합니다.(여기서는 data-text)</strong></div> 
+&nbsp;&nbsp;&lt;div class="input_group"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;prepend&gt;전화번호&lt;/prepend&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;input type="text" data-text name="phone" size="30" maxlength="20" placeholder="'-'를 제외하고 입력" /&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br><br>
+<div><strong>2. 해당 입력 엘리먼트에 이벤트 핸들러를 지정하고 입력 값을 검증합니다.</strong></div> 
+&nbsp;&nbsp;$("input[data-text]").on("click", function(){<br>
+&nbsp;&nbsp; if(!Validation.Number($(this).val()){alert("숫자만 입력 가능합니다."); return false;}<br>
+&nbsp;&nbsp;});<br>
+
+</div>
+
+<div class="resultText"></div>
+<div id="validation1" class="result"> 
+</div>
+
+</div>
+<div class="footer_line"></div>
+<div class="footer">Created by NGY</div>
+<script type="text/javascript">
+//Ajax 클래스 결과
+  $("#ajax2").append("<div class='center'>클릭 이벤트 핸들러로 로더 테스트(3초 걸림)</div>");
+  $("#ajax2").append("<button id='LoaderClick' class='medium blue center'>클릭</button>");
+  $("#LoaderClick").on("click", function(){
+    Loader.Pop();
+    Ajax.url = "http://127.0.0.1:5555/ajax";
+    Ajax.async = true;
+    Ajax.param = {};
+    Ajax.Call().onloadend = function(){
+      $("#ajax1").text("이름:" + Ajax.result.ENAME +", 부서코드:" + Ajax.result.ORGEH);
+     Loader.Close();
+    }
+  });
+
+//데이터 정렬 클래스 결과
+  Sort.array = [ { name: 'Edward', age: 21 }, { name: 'Sharpe', age: 37 }, { name: 'And', age: "45" }, { name: 'The', age: 12 }, { name: 'Zeros', age: "37" } ];
+  Sort.val = "age";
+  $("#sort1").append("<div><strong>나이 오름차순: </strong>");
+  $("#sort1").append(JSON.stringify(Sort.Ascend()));
+  $("#sort1").append("</div>");
+  $("#sort1").append("<div><strong>나이 역순: </strong>");
+  $("#sort1").append(JSON.stringify(Sort.Reverse()));
+  $("#sort1").append("</div>");
+  $("#sort1").append("<div><strong>나이 합: </strong>");
+  $("#sort1").append(JSON.stringify(Sort.Sum()));
+  $("#sort1").append("</div>");
+
+//모달창 클래스 결과
+  $("#modal1").append("<div class='center'>모달창 테스트</div>");
+  $("#modal1").append("<button id='ModalClick' class='medium black center'>클릭</button>");
+  $("#ModalClick").on("click", function(){
+    Modal.title = "<div style='color: orangered;'><b>Best Practices for Improving JavaScript Performance</b></div>";
+    Modal.content = "<ul><strong>Common JavaScript Performance Problems</strong>";
+    Modal.content += "<li>Too many interactions with the host</li>";
+    Modal.content += "<li>Too many dependencies</li>";
+    Modal.content += "<li>Poor event handling</li>";
+    Modal.content += "<li>Inefficient iterations</li>";
+    Modal.content += "<li>Unorganized code</li>";
+    Modal.content += "</ul>";
+    Modal.content += "<ul><strong>20 Tips and Best Practices for Improving JavaScript Performance</strong>";
+    Modal.content += "<li>Use HTTP/2</li>";
+    Modal.content += "<li>Use pointer references</li>";
+    Modal.content += "<li>Trim your HTML</li>";
+    Modal.content += "<li>Use document.getElementById()</li>";
+    Modal.content += "<li>Batch your DOM changes</li>";
+    Modal.content += "<li>Buffer your DOM</li>";
+    Modal.content += "<li>Compress your files</li>";
+    Modal.content += "<li>Limit library dependencies</li>";
+    Modal.content += "<li>Minify your code</li>";
+    Modal.content += "<li>Add post-load dependency managers</li>";
+    Modal.content += "<li>Cache as much as you can</li>";
+    Modal.content += "<li>Mind your event handlers</li>";
+    Modal.content += "<li>Compress your files</li>";
+    Modal.content += "<li>Replace ‘click’ with ‘mouseup’</li>";
+    Modal.content += "<li>Use reference types responsibly</li>";
+    Modal.content += "<li>Cut down your scope chain</li>";
+    Modal.content += "<li>Use the local scope (‘this’)</li>";
+    Modal.content += "<li>Favor native functions and constructs</li>";
+    Modal.content += "<li>Prefer Async and Defer</li>";
+    Modal.content += "<li>Animate with requestAnimationFrame</li>";
+    Modal.content += "<li>Throttle and Debounce</li>";
+    Modal.content += "</ul>";
+    Modal.content += "<div class='center blue'>출처: <a href='https://www.keycdn.com/blog/javascript-performance/' target='_blank'>javascript-performance</a></div><br>";
+    Modal.footer = "<button class='green'>승인</button><button  class='red close'>닫기</button>"
+    Modal.Create();
+    Modal.Pop();
+   });
+  $("body").on("click", ".close", function(){
+    Modal.Close();
+  });  
+
+  //검색 클래스 결과
+  SearchList.arr = [{'item1':'ABC','item2':'123','name':'홍길동'},'item3:546','5002121'];
+  SearchList.nval = "item";
+  $("#searchlist1").append(JSON.stringify(SearchList.Match()));
+
+  //문자열 클래스 결과
+  var str = "1234567689";
+  var special = "abc!@#$%|+_123";
+  $("#string1").append("<div><strong>화폐단위로 변환: </strong>"+ str.Currency() +"</div>");
+  $("#string1").append("<div><strong>일반 문자열로 변환: </strong>"+ str.unCurrency() +"</div>");
+  $("#string1").append("<div><strong>특수문자 제거: </strong>"+ special.unSpecial() +"</div>");
+
+  //날짜 클래스 결과
+  var myDate = new Date();
+  $("#date1").append("<div><strong>오늘날짜: </strong>"+ myDate.Today() +"</div>");
+  $("#date1").append("<div><strong>두 날짜의 차이: </strong>"+ myDate.diffDate("20180201","20180321") +"</div>");
+  $("#date1").append("<div><strong>5일 전 날짜: </strong>"+ myDate.beforeDate(5) +"</div>");
+  $("#date1").append("<div><strong>5일 후 날짜: </strong>"+ myDate.afterDate(5) +"</div>");
+
+  //색상 클래스 결과
+  var $cola1 = document.getElementById("cocacola1");
+  Color.image = $cola1;
+  Color.croma = 0;
+  var rgba = Color.getImgRGBA();
+  $cola1.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola2 = document.getElementById("cocacola2");
+  Color.image = $cola2;
+  Color.croma = 1;
+  var rgba = Color.getImgRGBA();
+  $cola2.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola3 = document.getElementById("cocacola3");
+  Color.image = $cola3;
+  Color.croma = 2;
+  var rgba = Color.getImgRGBA();
+  $cola3.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola4 = document.getElementById("cocacola4");
+  Color.image = $cola4;
+  Color.croma = 7;
+  var rgba = Color.getImgRGBA();
+  $cola4.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $cola5 = document.getElementById("cocacola5");
+  Color.image = $cola5;
+  Color.croma = 10;
+  var rgba = Color.getImgRGBA();
+  $cola5.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star1 = document.getElementById("starbucks1");
+  Color.image = $star1;
+  Color.light = 0;
+  var rgba = Color.getImgRGBA();
+  $star1.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star2 = document.getElementById("starbucks2");
+  Color.image = $star2;
+  Color.light = 1;
+  var rgba = Color.getImgRGBA();
+  $star2.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star3 = document.getElementById("starbucks3");
+  Color.image = $star3;
+  Color.light = 5;
+  var rgba = Color.getImgRGBA();
+  $star3.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star4 = document.getElementById("starbucks4");
+  Color.image = $star4;
+  Color.light = 7;
+  var rgba = Color.getImgRGBA();
+  $star4.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+
+  var $star5 = document.getElementById("starbucks5");
+  Color.image = $star5;
+  Color.light = 9;
+  var rgba = Color.getImgRGBA();
+  $star5.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
+  
+  //쿠키 클래스 결과
+  Cookie.setCookie("num","12345678");
+  var obj = document.cookie.split(';');
+  var $cookie =  $("#cookie1");
+  obj.forEach(function(v, k){
+    $cookie.append("<li>" + v.substring(0,30) + "</li>");
+  });
+ 
+  //입력값 검증 클래스 결과
+  $("#validation1").append("<div class='input_group'><prepend>주소</prepend><input type='text' size='30' data-text placeholder='특수문자를 입력 해보세요'/></div>");
+  $("#validation1").append("<div class='input_group'><prepend>전화번호</prepend><input type='text' data-number placeholder='영문을 입력 해보세요'/></div>");
+  $("input[data-text]").on("keyup", function(){
+     console.log($(this).val());
+     if(!Validation.Text($(this).val())){
+      alert("특수문자는 입력 불가합니다."); 
+      $(this).val('');
+      return false;
+     }
+  });
+
+  $("input[data-number]").on("keyup", function(){
+     console.log($(this).val());
+     if(!Validation.Number($(this).val())){
+      alert("숫자만 입력 가능합니다."); 
+      $(this).val('');
+      return false;
+     }
+  });
+
+</script>
+</body>
+
+</html>

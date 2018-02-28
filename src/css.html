@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<link rel="stylesheet" type="text/css" href="../css/grazioso-1.0.0.css">
+<link href="https://fonts.googleapis.com/css?family=Monoton|Nanum+Pen+Script|Press+Start+2P" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="../images/grazioso.ico"/>
+<title>ERP WEB LIBRARY</title>
+<style type="text/css">
+body{
+  font-family: dotum;
+}
+span{
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 100;
+}
+div.title2{
+   font-family: 'Monoton', cursive;
+}
+
+</style>
+</head>
+<body>
+<div class="title">
+<span style="color:#FC6658">ERP</span>
+<span style="color:#4079FD">WEB</span>
+<span style="color:#0DBA0D">CSS</span>
+<span style="color:#FCE537">DOCUMENT</span>	
+<div class="title2">CSS</div>
+</div>
+
+<div class="line">설치방법</div>
+<div class="usage" style="margin-bottom: 80px;"> 
+<div>적용할 페이지 상단 head 태그 안에 grazioso.css 파일을 인클루드 시켜 주세요</div>
+&lt;link rel="stylesheet" type="text/css" href="<strong>css/grazioso.css</strong>"&gt;<br>
+</div>
+
+
+<div class="line">텍스트 크기 조절</div>
+<div class="explainText"></div>
+<div class="explain">
+	루트 엘리먼트(html)의 폰트 사이즈가 기준(rem)이 되며 원하는 텍스트 크기에 따라 <strong>small, medium, large, xlarge</strong> 중 하나의 클래스를 적용 하시면 됩니다.
+</div>	
+<div class="usageText"></div>
+<div class="usage">
+&lt;div class="<strong>xlarge</strong>"&gt;1.5 rem이 적용된 매우 큰 글씨체 입니다.&lt;/div&gt;<br>
+&lt;div class="<strong>large</strong>"&gt;1.2 rem이 적용된 큰 글씨체 입니다.&lt;/div&gt;<br>
+&lt;div class="<strong>medium</strong>"&gt;1 rem이 적용된 중간 글씨체  입니다.&lt;/div&gt;<br>
+&lt;div class="<strong>small</strong>"&gt;0.8rem이 적용된 작은 글씨체  입니다.&lt;/div&gt;<br>
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div class="xlarge">1.5 rem이 적용된 매우 큰 글씨체 입니다.</div><br>
+<div class="large">1.2 rem이 적용된 큰 글씨체 입니다.</div><br>
+<div class="medium">1 rem이 적용된 중간 글씨체  입니다.</div><br>
+<div class="small">0.8rem이 적용된 작은 글씨체  입니다.</div><br>
+</div>
+
+
+<div class="line">텍스트 정렬</div>
+<div class="explainText"></div>
+<div class="explain">
+	원하는 텍스트 정렬 방법에 따라 <strong>left, center, right</strong> 중 하나의 클래스를 적용 하시면 되며 블록 요소에만 적용 받습니다.
+</div>	
+<div class="usageText"></div>
+<div class="usage">
+&lt;div class="<strong>left</strong>"&gt;좌측정렬&lt;/div&gt;<br>
+&lt;div class="<strong>center</strong>"&gt;가운데정렬&lt;/div&gt;<br>
+&lt;div class="<strong>right</strong>"&gt;우측정렬&lt;/div&gt;<br>
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div class="left" style="border: 1px dotted darkgrey;">좌측정렬</div><br>
+<div class="center" style="border: 1px dotted darkgrey;">가운데정렬</div><br>
+<div class="right" style="border: 1px dotted darkgrey;">우측정렬</div><br>
+</div>
+
+
+<div class="line">배경 채색 하기</div>
+<div class="explainText"></div>
+<div class="explain">
+	원하는 배경 색깔에 따라 <strong>red, blue, green, yellow</strong> 중 하나의 클래스를 적용 하시면 됩니다. 가독성을 위해 텍스트는 자동으로
+	하얀색으로 변경 됩니다. 
+</div>	
+<div class="usageText"></div>
+<div class="usage">
+&lt;div class="<strong>red</strong>"&gt;RED&lt;/div&gt;<br>
+&lt;div class="<strong>blue</strong>"&gt;BLUE&lt;/div&gt;<br>
+&lt;div class="<strong>green</strong>"&gt;GREEN&lt;/div&gt;<br>
+&lt;div class="<strong>yellow</strong>"&gt;YELLOW&lt;/div&gt;<br>
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div class="red">RED</div><br>
+<div class="blue">BLUE</div><br>
+<div class="green">GREEN</div><br>
+<div class="yellow">YELLOW</div><br>
+</div>
+
+<div class="line">리스트 나열</div>
+<div class="explainText"></div>
+<div class="explain">
+	목록 나열이 필요하면 바로 &lt;ul&gt; 및 &lt;li&gt; 태그를 사용하시면 됩니다.
+</div>	
+<div class="usageText"></div>
+<div class="usage">
+  &lt;ul&gt;<br>
+  &nbsp;&lt;li&gt;First&lt;/li&gt;<br>
+  &nbsp;&lt;li&gt;Second&lt;/li&gt;<br>
+  &nbsp;&lt;li&gt;Third&lt;/li&gt;<br>
+  &nbsp;&lt;li&gt;Fourth&lt;/li&gt;<br>
+  &lt;/ul&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+  <ul>
+  	  <li>First</li>
+  	  <li>Second</li>
+  	  <li>Third</li>
+  	  <li>Fourth</li>
+  </ul>
+</div>
+
+
+<div class="line">텍스트 하이라이트</div>
+<div class="explainText"></div>
+<div class="explain">
+	텍스트에 하이라이트 표시가 필요 하면 색갈별로 mark 태그를 사용하시면 됩니다.
+</div>	
+<div class="usageText"></div>
+<div class="usage">
+  &lt;markyellow&gt;텍스트에 노란색 하이라이트가 칠해집니다.&lt;/markyellow&gt;<br>
+  &lt;markred&gt;텍스트에 빨간색 하이라이트가 칠해집니다.&lt;/markred&gt;<br>
+  &lt;markblue&gt;텍스트에 파란색 하이라이트가 칠해집니다.&lt;/markblue&gt;<br>
+  &lt;markgreen&gt;텍스트에 초록색 하이라이트가 칠해집니다.&lt;/markgreen&gt;<br>
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+  <markyellow>텍스트에 노란색 하이라이트가 칠해집니다.</markyellow><br><br>
+  <markred>텍스트에 빨간색 하이라이트가 칠해집니다.</markred><br><br>
+  <markblue>텍스트에 파란색 하이라이트가 칠해집니다.</markblue><br><br>
+  <markgreen>텍스트에 초록색 하이라이트가 칠해집니다.</markgreen><br><br>
+</div>
+
+
+<div class="line">팁 보여주기</div>
+<div class="explainText"></div>
+<div class="explain">
+	텍스트에 마우스 오버 시 팁을 보여주려면 자식 태그에는 <strong>tooltiptext</strong> 클래스를 사용 하고 부모 태그에는 <strong>tooltip</strong> 클래스를 적용 하면 됩니다.
+</div>	
+<div class="usageText"></div>
+<div class="usage">
+  &lt;p class="<strong>tooltip</strong>"&gt;팁을 보시려면 마우스를 텍스트위에 올려 주세요<br>
+    &lt;span class="<strong>tooltiptext</strong>"&gt;이곳에 팁 내용이 들어갑니다.&lt;/span&gt;<br>
+  &lt;/p&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<p class="tooltip">팁을 보시려면 마우스를 텍스트위에 올려 주세요.
+  <span class="tooltiptext">이곳에 팁 내용이 들어갑니다.</span>
+</p>
+</div>
+
+
+<div class="line">테이블로 표 그리기</div>
+<div class="explainText"></div>
+<div class="explain">
+	table, tr, th, td 태그를 사용하여 바로 디자인된 테이블을 생성 할 수 있으며 각 요소 클래스에 배경색, 정렬 방법 등을 중첩 사용 할 수 있습니다. 
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;table&gt;<br>
+&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&lt;th&gt;사번&lt;/th&gt;<br>
+&nbsp;&nbsp;&lt;th&gt;이름&lt;/th&gt;<br>
+&nbsp;&nbsp;&lt;th&gt;항목 1&lt;/th&gt;<br>
+&nbsp;&nbsp;&lt;th&gt;항목 2&lt;/th&gt;<br>
+&nbsp;&nbsp;&lt;th&gt;항목 3&lt;/th&gt;<br>
+&nbsp;&lt;/tr&gt;<br>
+&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;30750&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;최성관&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="left"&gt;좌측정렬&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="center"&gt;가운데정렬&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="right"&gt;우측정렬&lt;/td&gt;<br>
+&nbsp;&lt;/tr&gt;<br>
+&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;30751&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;나구엽&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="red"&gt;RED&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="blue"&gt;BLUE&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="green"&gt;GREEN&lt;/td&gt;<br>
+&nbsp;&lt;/tr&gt;<br>
+&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;30752&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;문지은&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="small"&gt;small&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="medium"&gt;medium&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td class="large"&gt;large&lt;/td&gt;<br>
+&nbsp;&lt;/tr&gt;<br>
+&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;31393&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;이찬희&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;&lt;input type="text"/ value="입력값1"&gt;&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;&lt;input type="text"/ value="입력값2"&gt;&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;td&gt;&lt;input type="text"/ value="입력값3"&gt;&lt;/td&gt;<br>
+&nbsp;&lt;/tr&gt;<br>
+&lt;/table&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<table>
+	<tr>
+		<th>사번</th>
+		<th>이름</th>
+		<th>항목 1</th>
+		<th>항목 2</th>
+		<th>항목 3</th>
+	</tr>
+	<tr>
+		<td>30750</td>
+		<td>최성관</td>
+		<td class="left">좌측정렬</td>
+		<td class="center">가운데정렬</td>
+		<td class="right">우측정렬</td>
+	</tr>
+	<tr>
+		<td>30751</td>
+		<td>나구엽</td>
+		<td class="red">RED</td>
+		<td class="blue">BLUE</td>
+		<td class="green">GREEN</td>
+	</tr>
+	<tr>
+		<td>30752</td>
+		<td>문지은</td>
+		<td class="small">small</td>
+		<td class="medium">medium</td>
+		<td class="large">large</td>
+	</tr>
+	<tr>
+		<td>31393</td>
+		<td>이찬희</td>
+		<td><input type="text"/ value="입력값1"></td>
+		<td><input type="text"/ value="입력값2"></td>
+		<td><input type="text"/ value="입력값3"></td>
+	</tr>
+</table>	
+</div>
+
+
+<div class="line">버튼 만들기</div>
+<div class="explainText"></div>
+<div class="explain">
+	button 태그를 사용하여 버튼을 생성 할 수 있으며 버튼 클릭 시 회색으로 버튼 배경이 변경 됩니다. 또한 클래스에 배경색, 텍스트 크기 등을 중첩 사용 할 수 있습니다. 
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;div class="center"&gt;<br>
+&nbsp;&lt;button class="small"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="medium"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="large"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="xlarge"&gt;click&lt;/button&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="center"&gt;<br>
+&nbsp;&lt;button class="small yellow"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="medium yellow"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="large yellow"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="xlarge yellow"&gt;click&lt;/button&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="center"&gt;<br>
+&nbsp;&lt;button class="small red"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="medium red"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="large red"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="xlarge red"&gt;click&lt;/button&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="center"&gt;<br>
+&nbsp;&lt;button class="small blue"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="medium blue"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="large blue"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="xlarge blue"&gt;click&lt;/button&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="center"&gt;<br>
+&nbsp;&lt;button class="small green"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="medium green"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="large green"&gt;click&lt;/button&gt;<br>
+&nbsp;&lt;button class="xlarge green"&gt;click&lt;/button&gt;<br>
+&lt;/div&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div class="center">	
+<button class="small">click</button>
+<button class="medium">click</button>
+<button class="large">click</button>
+<button class="xlarge">click</button>
+</div>
+<div class="center">
+<button class="small yellow">click</button>
+<button class="medium yellow">click</button>
+<button class="large yellow">click</button>
+<button class="xlarge yellow">click</button>
+</div>
+<div class="center">	
+<button class="small red">click</button>
+<button class="medium red">click</button>
+<button class="large red">click</button>
+<button class="xlarge red">click</button>
+</div>
+<div class="center">
+<button class="small blue">click</button>
+<button class="medium blue">click</button>
+<button class="large blue">click</button>
+<button class="xlarge blue">click</button>
+</div>
+<div class="center">	
+<button class="small green">click</button>
+<button class="medium green">click</button>
+<button class="large green">click</button>
+<button class="xlarge green">click</button>
+</div>
+</div>
+
+
+<div class="line">라디오 버튼 만들기</div>
+<div class="explainText"></div>
+<div class="explain">
+	form 태그 밑에 기본 input 태그의 radio 타입을 사용 하면 되며 name 속성 값을 동일하게 주면 중복 선택을 막을 수 있습니다.
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;form&gt;<br>	
+&nbsp;&lt;input type="radio" name="select" value="1"/&gt;&lt;label&gt;선택 1&lt;/label&gt;<br>
+&nbsp;&lt;input type="radio" name="select" value="2"/&gt;&lt;label&gt;선택 2&lt;/label&gt;<br>
+&nbsp;&lt;input type="radio" name="select" value="3"/&gt;&lt;label&gt;선택 3&lt;/label&gt;<br>
+&nbsp;&lt;input type="radio" name="select" value="4"/&gt;&lt;label&gt;선택 4&lt;/label&gt;<br>
+&nbsp;&lt;input type="radio" name="select" value="5"/&gt;&lt;label&gt;선택 5&lt;/label&gt;<br>
+&lt;/form&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<form>	
+  <input type="radio" name="select" value="1"/><label>선택 1</label>
+  <input type="radio" name="select" value="2"/><label>선택 2</label>
+  <input type="radio" name="select" value="3"/><label>선택 3</label>
+  <input type="radio" name="select" value="4"/><label>선택 4</label>
+  <input type="radio" name="select" value="5"/><label>선택 5</label>
+</form>
+</div>
+
+
+<div class="line">체크박스 만들기</div>
+<div class="explainText"></div>
+<div class="explain">
+	기본 input 태그의 checkbox 타입을 사용 합니다.
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;input type="checkbox"  value="1"/&gt;&lt;label&gt;체크박스&lt;/label&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<input type="checkbox"  value="1"/><label>체크박스</label>
+</div>
+
+
+<div class="line">텍스트 입력창 만들기</div>
+<div class="explainText"></div>
+<div class="explain">
+	prepend, append, middle 태그를 input 태그와 input_group클래스로 그룹지어 사용합니다.<br>
+	각 태그별로 prepend는 input 태그 앞쪽, append는 input 태그 뒤쪽, middle 태그는 input 태그 가운데 위치하며<br>
+	각 태그를 혼용하여 순차적으로 사용도 가능합니다. 또한 태그에 클래스를 입력하여 색상을 변경 할 수 있습니다.
+</div>
+<div class="usageText"></div>
+<div class="usage">
+
+&lt;div class="<strong>input_group</strong>"&gt;<br>
+&nbsp;<strong>&lt;prepend&gt;</strong>전화번호<strong>&lt;/prepend&gt;</strong><br>
+&nbsp;&lt;input type="text" name="phone" size="30" maxlength="20" placeholder="'-'를 제외하고 입력" /&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="<strong>input_group</strong>"&gt;<br>
+&nbsp;&lt;input type="text" name="dollor" size="20" maxlength="10" placeholder="숫자만 입력" /&gt;<br>
+&nbsp;<strong>&lt;append&gt;</strong>$<strong>&lt;/append&gt;</strong><br>	
+&lt;/div&gt;<br>
+&lt;div class="<strong>input_group</strong>"&gt;<br>
+&nbsp;&lt;input type="text" name="mail" size="20" maxlength="10" value="maple" /&gt;<br>
+&nbsp;<strong>&lt;middle&gt;</strong>@<strong>&lt;/middle&gt;</strong><br>	
+&nbsp;&lt;input type="text" name="domain" size="10" maxlength="20" value="kbs.co.kr" /&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="<strong>input_group</strong>"&gt;<br>
+&nbsp;<strong>&lt;prepend</strong> class="red"&gt;red<strong>&lt;/prepend&gt;</strong><br>	
+&nbsp;&lt;input type="text" name="phone" size="30" maxlength="20" placeholder="클래스 속성으로 색깔 변경 가능" /&gt;<br>
+&nbsp;<strong>&lt;middle</strong> class="green"&gt;green<strong>&lt;/middle&gt;</strong><br>	
+&nbsp;<strong>&lt;append</strong> class="blue"&gt;blue&nbsp;<strong>&lt;/append&gt;</strong><br>	
+&lt;/div&gt;<br>
+
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div class="input_group">
+<prepend>전화번호</prepend>	
+<input type="text" name="phone" size="30" maxlength="20" placeholder="'-'를 제외하고 입력" />
+</div>
+<div class="input_group">
+<input type="text" name="dollor" size="20" maxlength="10" placeholder="숫자만 입력" />
+<append>$</append>	
+</div>
+<div class="input_group">
+<input type="text" name="mail" size="20" maxlength="10" value="maple" />
+<middle>@</middle>	
+<input type="text" name="domain" size="10" maxlength="20" value="kbs.co.kr" />
+</div>
+<div class="input_group">
+<prepend class="red">red</prepend>	
+<input type="text" name="phone" size="30" maxlength="20" placeholder="클래스 속성으로 색깔 변경 가능" />
+<middle class="green">green</middle>	
+<append class="blue">blue</append>	
+</div>
+</div>
+
+
+<div class="line">로더 만들기</div>
+<div class="explainText"></div>
+<div class="explain">
+	이미지 파일을 사용하지 않고 CSS 애니메이션 효과를 이용한 로더 입니다.<br>
+	button 태그에 색상 클래스를 두어 색상 변경이 가능합니다.<br>
+	기본적으로 통신처리, 동기 처리, 데이터 처리 등에 사용이 가능하며 화면 전체 혹은 일부에만 나오게 할 수도 있습니다.<br>
+	좀 더 자세한 사용 방법은 <a href="../js" target="_blank">js 페이지</a>를 참조해주세요
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>	
+&lt;/div&gt;<br>
+&lt;div style="text-align: center;"&gt;<br>
+&lt;button class="white"&gt;<br>
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>	
+&lt;/button&gt;<br>
+&lt;button class="black"&gt;<br>
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>	
+&lt;/button&gt;<br>
+&lt;button class="red"&gt;<br>
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>
+&lt;/button&gt;<br>
+&lt;button class="blue"&gt;<br>
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>
+&lt;/button&gt;<br>
+&lt;button class="green"&gt;<br>
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>
+&lt;/button&gt;<br>
+&lt;button class="yellow"&gt;<br>
+&lt;div class="<strong>loader</strong>"&gt;&lt;/div&gt;<br>
+&lt;div class="center"&gt;LOADING&lt;/div&gt;<br>
+&lt;/button&gt;<br>
+&lt;/div&gt;
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div>
+<div class="loader"></div>
+<div class="center">LOADING</div>	
+</div>
+<div style="text-align: center;">
+<button class="white">
+<div class="loader"></div>
+<div class="center">LOADING</div>	
+</button>
+<button class="black">
+<div class="loader"></div>
+<div class="center">LOADING</div>	
+</button>
+<button class="red">
+<div class="loader"></div>
+<div class="center">LOADING</div>
+</button>
+<button class="blue">
+<div class="loader"></div>
+<div class="center">LOADING</div>
+</button>
+<button class="green">
+<div class="loader"></div>
+<div class="center">LOADING</div>
+</button>
+<button class="yellow">
+<div class="loader"></div>
+<div class="center">LOADING</div>
+</button>
+</div>
+</div>
+</div>
+
+
+<div class="line">선택 창 만들기</div>
+<div class="explain">
+	prepend 태그를 라벨로 하여 기본적인 select, option 태그를 사용하면 됩니다. option 태그에 클래스를 두어 색상 변경도 가능합니다.
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;div class="<strong>input_group</strong>"&gt;<br>
+&nbsp;<strong>&lt;prepend&gt;</strong>color<strong>&lt;/prepend&gt;</strong><br>	
+&nbsp;&lt;select name="color"&gt;<br>
+&nbsp;&nbsp;&lt;option value="0"&gt;선택&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="red"&gt;RED&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="blue"&gt;BLUE&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="yellow"&gt;YELLOW&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option value="green"&gt;GREEN&lt;/option&gt;<br>
+&nbsp;&lt;/select&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class="<strong>input_group</strong>"&gt;<br>
+&nbsp;<strong>&lt;prepend&gt;</strong>color<strong>&lt;/prepend&gt;</strong><br>
+&nbsp;&lt;select name="color"&gt;<br>
+&nbsp;&nbsp;&lt;option value="0"&gt;선택&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option class="red" value="red"&gt;RED&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option class="blue" value="blue"&gt;BLUE&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option class="yellow" value="yellow"&gt;YELLOW&lt;/option&gt;<br>
+&nbsp;&nbsp;&lt;option class="green" value="green"&gt;GREEN&lt;/option&gt;<br>
+&nbsp;&lt;/select&gt;<br>
+&lt;/div&gt;	
+</div>
+<div class="resultText"></div>
+<div class="result"> 
+<div class="input_group">
+<prepend>color</prepend>	
+<select name="color">
+	<option value="0">선택</option>
+	<option value="red">RED</option>
+	<option value="blue">BLUE</option>
+	<option value="yellow">YELLOW</option>
+	<option value="green">GREEN</option>
+</select>
+</div>
+<div class="input_group">
+<prepend>color</prepend>	
+<select name="color">
+	<option value="0">선택</option>
+	<option class="red" value="red">RED</option>
+	<option class="blue" value="blue">BLUE</option>
+	<option class="yellow" value="yellow">YELLOW</option>
+	<option class="green" value="green">GREEN</option>
+</select>
+</div>
+</div>
+
+
+<div class="line">이미지 모양 변경</div>
+<div class="explain">
+	기본적인 img 태그에 클래스로 테두리 모양 및 색상 변경이 가능합니다. 
+</div>
+<div class="usageText"></div>
+<div class="usage">
+&lt;img src="../images/jobs.png" class="circle" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="rect" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="circle yellow" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="rect yellow" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="circle red" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="rect red" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="circle green" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="rect green" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="circle blue" width="120" alt="Steve jobs"/&gt;<br>
+&lt;img src="../images/jobs.png" class="rect blue" width="120" alt="Steve jobs"/&gt;
+</div>
+<div class="resultText"></div>
+<div class="result" style="text-align:center;"> 
+<img src="../images/jobs.png" class="circle" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="rect" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="circle yellow" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="rect yellow" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="circle red" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="rect red" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="circle green" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="rect green" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="circle blue" width="120" alt="Steve jobs"/>
+<img src="../images/jobs.png" class="rect blue" width="120" alt="Steve jobs"/>
+</div>
+
+
+
+<div class="footer_line"></div>
+<div class="footer">Designed by NGY</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "sound",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect-timeout": "^1.9.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "multer": "^1.3.0"
+  },
+  "description": "CoronaMusic",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "erplib"
+  ],
+  "author": "navlndev",
+  "license": "ISC"
+}

@@ -1,0 +1,470 @@
+/* Ver 1.0.0
+   Designed by NGY
+*/
+body{
+    border: 20px solid lightgrey;
+	margin: 0;
+	min-width: 360px;
+}
+div.title{
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    width: 100%;
+    line-height: 100px;
+    height: 100px;
+}
+div.title2{
+    position: relative;
+    top: -90px;
+    font-size: 10rem;
+    text-align: right;
+    color: rgba(211,211,211,0.3);
+    margin-right: -15px;
+}
+div.line::before{
+	font-size: 1.5rem;
+	content: "✪ "
+}
+div.line::after{
+	font-size: 1.5rem;
+	content: " ✪"
+}
+div.line{
+	text-align: center;
+	font-size: 1.4rem;
+    font-weight: bold;
+	background-color: lightgrey;
+	color: black;
+	margin-bottom: 30px;
+	width: 100%;
+	height: 60px;
+	display: inline-block;
+	line-height: 60px;
+}
+div.explainText::before{ 
+	content: "[설명]"; 
+}
+div.explainText{
+	text-align: center;
+	font-weight: bold;
+	margin: 10px 0;
+	color: grey;
+}
+div.explain{
+    box-shadow: 2px 2px darkgrey;
+	border: 2px solid grey;
+	margin: 0 60px;
+	border-radius: 6px;
+	padding: 10px;
+	color: grey;
+}
+
+div.usageText::before{
+	content: "[사용법]"; 
+}
+div.usageText{
+	text-align: center;
+	font-weight: bold;
+	margin: 10px 0;
+	color: grey;
+}
+div.usage{
+    box-shadow: 2px 2px darkgrey;
+	border: 2px solid grey;
+	margin: 0 60px;
+	border-radius: 6px;
+	padding: 10px;
+	color: grey;
+}
+div.resultText::before{
+	content: "[결과]"; 
+}
+div.resultText{
+	text-align: center;
+	font-weight: bold;
+	margin: 10px 0;
+	color: grey;
+}
+div.result{
+    box-shadow: 2px 2px darkgrey;
+	border: 2px solid grey;
+	margin: 0 60px;
+	padding: 10px;
+	border-radius: 6px;
+	margin-bottom: 30px;
+}
+ul {
+	list-style: none;
+	padding-left: 5px;
+}
+li::before {
+	content: "◦"; 
+	color: lightgrey;
+	width: 1em;
+    display: inline-block;
+}
+table{
+	border-collapse: collapse;
+    width: 100%;
+    margin: 10px auto;
+}
+table .yellow{
+    border: 0px;
+    background-color: #FCE537;
+    color: white;
+}
+table .green{
+    border: 0px;
+    background-color: #0DBA0D;
+    color: white;
+}
+table .blue{
+    border: 0px;
+    background-color: #4079FD;
+    color: white;
+}
+table .red{
+    border: 0px;
+    background-color: #FC6658;
+    color: white;
+}
+table td input{
+	width: 80%;
+}
+th{
+	font-size: 0.9rem;
+	background-color: #EEE;
+	border-top: 2px solid #DDD;
+	border-bottom: 2px solid #DDD;
+	border-right: 1px solid white;
+	color: #999;
+	height: 30px;
+
+}
+td{
+	min-width: 60px;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	height: 30px;
+
+}
+button{
+	border: none;
+	color: white;
+	background-color: lightgrey;
+	border-radius: 4px;
+	display: inline-block;
+	padding: 6px 10px;
+	margin: 2px;
+}
+button:hover{
+	background-color: #555;
+}
+input[type='text']{
+	margin-top: -1px;
+	margin-bottom: 1px;
+	height: padding-box;
+	padding-left: 5px;
+}
+table input[type='text']{
+	display: block !important;
+	margin: auto  !important;
+}
+strong{
+	color:grey;
+}
+prepend + select{
+	top: -1px;
+    position: relative;
+    border-top: 2px solid #9A9A9A;
+    border-bottom: 2px solid #EEEEEE;
+    border-left: 0px solid white;
+}
+.circle{
+    border-radius: 50%;
+    border: 3px solid lightgrey;
+}
+.rect{
+    border-radius: 10%;
+    border: 3px solid lightgrey;
+}
+.xlarge{
+    font-size: 1.5rem;
+}
+.large{
+    font-size: 1.3rem;
+}
+.medium{
+    font-size: 1rem;
+}
+.small{
+    font-size: 0.7rem;
+}
+.left{
+	text-align: left;
+}
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.yellow{
+    border: 2px solid #FCE537;
+    background-color: #FCE537;
+    color: white;
+}
+.green{
+    border: 2px solid #0DBA0D;
+    background-color: #0DBA0D;
+    color: white;
+}
+.blue{
+    border: 2px solid #4079FD;
+    background-color: #4079FD;
+    color: white;
+}
+.red{
+    border: 2px solid #FC6658;
+    background-color: #FC6658;
+    color: white;
+}
+.white{
+	border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+.black{
+	border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltiptext::before{
+	content: "💡 "
+}
+.tooltiptext{
+	position: absolute;
+	min-width: 160px;
+	top: 20px;
+	left:50px;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    z-index: 1;
+}
+.input_group{
+	display: inline-flex;
+	margin: 8px;
+}
+.input_group input{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.input_group prepend + input{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.input_group middle + input{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.dark{
+    margin: 0;
+    border: 0px !important;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.modal{
+    width: 80%;
+    font-size: 1em;
+    border-radius: 8px;
+    color: black;
+    z-index: 1;
+    margin: 50px auto;
+    padding: 100p;
+    background-color: white;
+    box-shadow: 3px 3px #000;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.3s;
+}
+@keyframes fadeInOpacity {
+  0% {
+    margin: 10px 10%;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin: 50px 10%;
+  }
+}
+.modalhead{
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4rem;
+  border-bottom: 1px solid darkgrey;
+  margin: 10px auto;
+  color: black;
+  text-align: center;
+}
+.modalbody{
+  margin: 0 10px;
+}
+.modalfooter{
+  border-top: 1px solid darkgrey;
+  padding: 14px;
+  text-align: center;
+}
+@-webkit-keyframes rotating{
+  0% {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-radius: 12px;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border-radius: 0px;
+  }
+}
+@keyframes rotating {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-radius: 12px;
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border-radius: 0px;
+  }
+
+}
+.loader{
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    margin: 10px auto;
+    -webkit-animation: rotating 1s linear infinite;
+    -moz-animation: rotating 1s linear infinite;
+    -ms-animation: rotating 1s linear infinite;
+    -o-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+}
+button .loader{
+    border: 1px solid white;
+}
+.white .loader{
+    border: 1px solid black !important;
+}
+.footer_line{
+    height: 20px;
+    background-color: lightgrey;
+}
+.footer{
+	line-height: 80px;
+    text-align: center;
+    height: 80px;
+    background-color: black;
+    color: white;
+}
+markyellow{
+	background-color: #FCE537; 
+    color: white;
+}
+markred{
+	background-color: #FC6658;
+    color: white;
+}
+markblue{
+	background-color: #4079FD;
+    color: white;
+}
+markgreen{
+	background-color: #0DBA0D;
+    color: white;
+}
+prepend{
+	border-left: 2px solid #999;
+    border-top: 2px solid #9A9A9A;
+    border-bottom: 2px solid #EEEEEE;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: darkgrey;
+	color: white;
+	padding: 5px 10px;
+	margin-right: -2px;
+	position: relative;
+	top: -1px;
+}
+append{
+	border-right: 2px solid #999;
+    border-top: 2px solid #9A9A9A;
+    border-bottom: 2px solid #EEEEEE;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: darkgrey;
+	color: white;
+	padding: 5px 10px;
+	margin-left: -2px;
+	position: relative;
+	top: -1px;
+}
+middle{
+    border-top: 2px solid #9A9A9A;
+    border-bottom: 2px solid #EEEEEE;
+    background-color: darkgrey;
+	color: white;
+	padding: 5px 10px;
+    margin: 0 -4px;
+	position: relative;
+	top: -1px;
+}
+prepend + middle{
+	margin-left: 0px !important;
+}
+middle + append{
+	margin-left: 0px !important;
+}
