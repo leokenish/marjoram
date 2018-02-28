@@ -26,6 +26,6 @@ var app = express();
       res.render('/js/grazioso-1.5.0.js');
     });
 
-var server = app.listen(process.env.PORT || 5555, function(){
-    console.log('Running Web server on 5555 port');
+var server = app.listen(process.env.PORT || 8081, function(){
+    console.log('Running Web server on 8081 port');
 });
