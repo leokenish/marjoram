@@ -390,7 +390,6 @@ Date.prototype.afterDate = function(diff){
              colorData.forEach(function(v, k) {
                colorData[k] = canvas.getContext('2d').getImageData(offsetX, offsetY, canvas.width, canvas.height).data[k];
              });      
-             console.log(colorData);
              imgarr.push(colorData.join(','));
              croarr.push(this.Cromatic(colorData)); 
              lightarr.push(this.Distance(colorData));   
