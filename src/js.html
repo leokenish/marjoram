@@ -4,10 +4,10 @@
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../js/grazioso-1.5.0.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/grazioso-1.0.0.css">
+<script type="text/javascript" src="../js/marjoram-1.5.0.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/marjoram-1.0.0.css">
 <link href="https://fonts.googleapis.com/css?family=Monoton|Nanum+Pen+Script|Press+Start+2P" rel="stylesheet">
-<link rel="shortcut icon" type="image/png" href="../images/grazioso.ico"/>
+<link rel="shortcut icon" type="image/png" href="../images/marjoram.ico"/>
 <title>ERP WEB LIBRARY</title>
 <style type="text/css">
 body{
@@ -42,14 +42,14 @@ div.title2{
 
 <div class="line">설치방법</div>
 <div class="usage" style="margin-bottom: 20px;"> 
-<div>상단 head 태그 안에 grazioso-1.0.0.css 및 grazioso-1.5.0.js 파일을 인클루드 시켜 주세요</div>
-&lt;link rel="stylesheet" type="text/css" href="<strong>css/grazioso-1.0.0.css</strong>"&gt;<br>
-&lt;script type="text/javascript" src="<strong>js/grazioso-1.5.0.js</strong>"&gt;<br>
+<div>상단 head 태그 안에 marjoram-1.0.0.css 및 marjoram-1.5.0.js 파일을 인클루드 시켜 주세요</div>
+&lt;link rel="stylesheet" type="text/css" href="<strong>css/marjoram-1.0.0.css</strong>"&gt;<br>
+&lt;script type="text/javascript" src="<strong>js/marjoram-1.5.0.js</strong>"&gt;<br>
 </div>
 <div class="usage" style="margin-bottom: 60px;"> 
 <div><strong>[CDN 주소]</strong></div>
-https://grazioso.herokuapp.com/css/grazioso-1.0.0.css<br>
-https://grazioso.herokuapp.com/js/grazioso-1.5.0.js<br>
+https://marjoram.herokuapp.com/css/marjoram-1.0.0.css<br>
+https://marjoram.herokuapp.com/js/marjoram-1.5.0.js<br>
 </div>
 
 <div class="line">Ajax 통신 클래스</div>
@@ -385,7 +385,7 @@ $(document).ready(function(){
   $("#ajax2").append("<button id='LoaderClick' class='medium blue center'>클릭</button>");
   $("#LoaderClick").on("click", function(){
     Loader.Pop();
-    if(!!location.host.match("grazioso.herokuapp.com")) {Ajax.url = "https://grazioso.herokuapp.com/ajax";}
+    if(!!location.host.match("marjoram.herokuapp.com")) {Ajax.url = "https://marjoram.herokuapp.com/ajax";}
     else {Ajax.url = "http://127.0.0.1:8081/ajax";}
     Ajax.async = true;
     Ajax.param = {};
