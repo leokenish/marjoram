@@ -211,7 +211,7 @@ _Modal.prototype = {
 	Pop: function(){
     var node1 = document.createElement("div");
         node1.setAttribute("id", "background");
-        node1.setAttribute("style", "position: fixed; top: 0px; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.75);"); 
+        node1.setAttribute("style", "position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.75);"); 
         document.body.appendChild(node1);  
     var $background = document.getElementById("background");
         $background.appendChild(this.newNode);
