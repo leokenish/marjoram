@@ -13,12 +13,12 @@
 body{
   font-family: dotum;
 }
-div img{
+div div img{
     width: 60%;
     max-width: 120px;
     display: inline-block;
 }
-span{
+.title span{
     font-family: 'Press Start 2P', cursive;
     font-weight: 100;
 }
@@ -30,9 +30,13 @@ div.title2{
     top: 50vh;
     left: 50vw;
 }
+div.line{
+   font-family: monospace;
+}
 </style>
 <body>
 <div class="title">
+<span><img src="../images/marjoram.png" alt="marjoram" /></span>  
 <span style="color:#FCE537">MARJORAM</span>
 <span style="color:#0DBA0D">WEB</span>
 <span style="color:#4079FD">JS</span>
@@ -376,7 +380,10 @@ input 태그 등에서 입력된 값을 검증 할 수 있습니다. input 태�
 
 </div>
 <div class="footer_line"></div>
-<div class="footer">Created by NGY</div>
+<div class="footer">
+<span><img src="../images/marjoram.png" alt="marjoram" /></span> 
+<span>Created by NGY</span>
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -410,7 +417,7 @@ $(document).ready(function(){
 
 //모달창 클래스 결과
   $("#modal1").append("<div class='center'>모달창 테스트</div>");
-  $("#modal1").append("<button id='ModalClick' class='medium black center'>클릭</button>");
+  $("#modal1").append("<button id='ModalClick' class='medium red center'>클릭</button>");
   $("#ModalClick").on("click", function(){
     Modal.title = "<div style='color: orangered;'><b>Best Practices for Improving JavaScript Performance</b></div>";
     Modal.content = "<ul><strong>Common JavaScript Performance Problems</strong>";

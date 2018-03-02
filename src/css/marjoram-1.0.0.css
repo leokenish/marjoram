@@ -7,6 +7,7 @@ body{
 	min-width: 560px;
 }
 div.title{
+    border: 5px solid grey;
     text-align: center;
     font-weight: bold;
     background-color: black;
@@ -24,11 +25,13 @@ div.title2{
     margin-right: -15px;
 }
 div.line::before{
-	font-size: 1.5rem;
+    color: grey;
+	font-size: 1.2rem;
 	content: "✪ "
 }
 div.line::after{
-	font-size: 1.5rem;
+    color: grey;
+	font-size: 1.2rem;
 	content: " ✪"
 }
 div.line{
@@ -44,7 +47,7 @@ div.line{
 	line-height: 60px;
 }
 div.explainText::before{ 
-	content: "[설명]"; 
+	content: "「설명」"; 
 }
 div.explainText{
 	text-align: center;
@@ -62,7 +65,7 @@ div.explain{
 }
 
 div.usageText::before{
-	content: "[사용법]"; 
+	content: "「사용법」"; 
 }
 div.usageText{
 	text-align: center;
@@ -79,7 +82,7 @@ div.usage{
 	color: grey;
 }
 div.resultText::before{
-	content: "[결과]"; 
+	content: "「결과」"; 
 }
 div.resultText{
 	text-align: center;
@@ -151,7 +154,7 @@ td{
 
 }
 button{
-	border: none;
+    border: 2px solid lightgrey;
 	color: white;
 	background-color: lightgrey;
 	border-radius: 4px;
@@ -160,6 +163,7 @@ button{
 	margin: 2px;
 }
 button:hover{
+    border: 2px solid #555;
 	background-color: #555;
 }
 input[type='text']{
@@ -404,6 +408,7 @@ button .loader{
     background-color: lightgrey;
 }
 .footer{
+    border: 5px solid grey;
 	line-height: 80px;
     text-align: center;
     height: 80px;
