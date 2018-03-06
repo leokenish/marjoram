@@ -90,11 +90,11 @@ https://marjoram.herokuapp.com/js/marjoram-1.5.0.min.js<br>
 &nbsp;&nbsp;Ajax.url = "https://erp.kbs.co.kr/kbs/zweb_common/ajax_common.htm?function_name=ZWEB_PS_MYINFO";<br><br>
 <div><strong>2. json 타입의 전송 데이터, 특수문자 및 괄호에 주의하며 여러 라인일 경우 대괄호를 이용한 array 타입으로 묶어줌</strong></div>
 &nbsp;&nbsp;Ajax.param = {"FLAG":"A", "ID":"30751","DATE":"20180209", "TBL":[{"PERNR":"30750","VDSK1":"50026013","POSID":"T0145450001"}, {"PERNR":"30751","VDSK1":"50026013","POSID":"T0111590001"}, {"PERNR":"30752","VDSK1":"50026013","POSID":"T0140020002"}]};<br><br>
-<div><strong>3. 동기 통신일 경우(짧은 응답일때 사용)</strong></div>
+<div><strong>3. 동기 통신일 경우(짧은 응답 일때 사용)</strong></div>
 &nbsp;&nbsp;Ajax.async = false;<br>
 &nbsp;&nbsp;Ajax.Call(); //호출<br>
 &nbsp;&nbsp;$("#ajax").text("이름:" + Ajax.result.ENAME +", 등급:" + Ajax.result.ORGEH); //결과 표시<br><br>
-<div><strong>4. 비동기 통신일 경우(긴 응답일떄 사용)</strong></div>
+<div><strong>4. 비동기 통신일 경우(긴 응답 일때 사용)</strong></div>
 &nbsp;&nbsp;Ajax.async = true;<br>
 &nbsp;&nbsp;Ajax.Call().onloadend = function(){; //호출 종료 이벤트 설정<br>
 &nbsp;&nbsp;&nbsp;$("#ajax").text("이름:" + Ajax.result.ENAME +", 등급:" + Ajax.result.ORGEH); //결과 표시<br>
@@ -483,6 +483,7 @@ $(document).ready(function(){
   $("#date1").append("<div><strong>5일 후 날짜: </strong>"+ myDate.afterDate(5) +"</div>");
 
   //색상 클래스 결과
+  setTimeout(function(){ 
   var $cola1 = document.getElementById("cocacola1");
   Color.image = $cola1;
   Color.croma = 0;
@@ -544,7 +545,7 @@ $(document).ready(function(){
   Color.light = 9;
   var rgba = Color.getImgRGBA();
   $star5.setAttribute("style","border:3px solid rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + ",1)");
-
+   }, 2000);
   
   //쿠키 클래스 결과
   Cookie.setCookie("num","12345678");

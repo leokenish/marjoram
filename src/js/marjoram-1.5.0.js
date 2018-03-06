@@ -370,6 +370,7 @@ Date.prototype.afterDate = function(diff){
     else{console.log("Type or length error!")}      
   },
   getImgRGBA: function(){
+    if(!!this.image){return false;}
     var pixelData = [0,0,0,0];
     var colorData = [0,0,0,0];
     var img = this.image;
