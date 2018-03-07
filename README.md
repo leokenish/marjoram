@@ -13,5 +13,5 @@ Include **marjoram css** and **marjoram js** files in html head tag like below.
 <i class="icon-file"></i>Document
 -------------
 
-> https://marjoram.herokuapp.com/css/;
-> https://marjoram.herokuapp.com/js/;
+> https://marjoram.herokuapp.com/css/<br>
+> https://marjoram.herokuapp.com/js/<br>
