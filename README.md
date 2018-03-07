@@ -19,7 +19,7 @@ Document
 
 Usage
 -------------
-## ㅇ Ajax Class
+#### ㅇ Ajax Class
 1. Properties<br>
 &nbsp; - url: 통신할 url 주소<br>
 &nbsp; - param: 전송할 데이터 파리미터(json 타입)<br>
